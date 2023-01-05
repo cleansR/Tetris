@@ -5,6 +5,7 @@ const nextPieceScreen = document.getElementById("nextPieceScreen");
 const titleScreen = document.getElementById("midTop");
 const heldPieceTitle = document.getElementById("heldPieceName");
 const nextPieceTitle = document.getElementById("nextPieceName");
+const controls = document.getElementById("controls");
 
 const canvasHeight = 600;
 const canvasWidth = 300;
@@ -18,6 +19,7 @@ function initialize()
     drawScore();
     drawNextPieceScreen();
     drawTitle();
+    drawControls();
 }
 
 function update()
@@ -93,6 +95,11 @@ function drawHoldPieceScreen()
 function drawScore()
 {
     scoreBoard.innerText = "Score: " + currentScore + "\nLevel: " + currentLevel + "\nLines Cleared: " + linesCleared;
+}
+
+function drawControls()
+{
+    controls.innerText = "Controls: \n\nUp : Rotate \n\nLeft : Move Left \n\nRight : Move Right \n\nDown : Move Down \n\nSpace : Instant Drop \n\nC : Hold";
 }
 
 function drawNextPieceScreen()

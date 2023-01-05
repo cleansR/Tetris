@@ -51,8 +51,8 @@ function setUp()
             boardArray[i][j] = 0;
         }
     }
-    drawTitle();
-    update();
+
+    initialize();
 
     window.onkeydown = function(event){
         parseInput(event);

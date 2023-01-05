@@ -3,6 +3,8 @@ const scoreBoard = document.getElementById("score");
 const heldPieceScreen = document.getElementById("heldPieceScreen");
 const nextPieceScreen = document.getElementById("nextPieceScreen");
 const titleScreen = document.getElementById("midTop");
+const heldPieceTitle = document.getElementById("heldPieceName");
+const nextPieceTitle = document.getElementById("nextPieceName");
 
 const canvasHeight = 600;
 const canvasWidth = 300;
@@ -129,5 +131,7 @@ function drawNextPieceScreen()
 function drawTitle()
 {
     titleScreen.innerText = "TETRIS";
+    heldPieceTitle.innerHTML = "HOLD";
+    nextPieceTitle.innerHTML = "NEXT";
 }
 

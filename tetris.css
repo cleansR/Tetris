@@ -2,44 +2,64 @@
 {
     width: 800px;
     height: 700px;
-    background-color:deeppink;
     display: flex;
     justify-content: center;
     margin: 0 auto;
     border-style: solid;
     border-color:green;
     border-radius: 8px;
+    border-width: 10px;
 }
 
 #midTop
 {
-    width: 300px;
-    height: 50px;
+    width: 292px;
+    height: 42px;
     font-family:'Courier New', Courier, monospace;
     font-size: 30px;
     display: flex;
     justify-content: center;
     text-align: center;
     align-items: center;
+
+    border-width: 4px;
+    border-style: solid;
+    border-color: yellow;
+    background-color:aquamarine;
+
+    font-weight: bold;
+    color:green
+    
 }
 
 #midBottom
 {
-    width: 300px;
-    height: 50px;
+    width: 292px;
+    height: 42px;
     display: flex;
     justify-content: center;
     text-align: center;
     align-items: center;
+
+    border-width: 4px;
+    border-style: solid;
+    border-color: yellow;
+    background-color:aquamarine;
 }
 
 #startGame
 {
     width: 100px;
-    height: 30px;
+    height: 25px;
     background-color: yellow;
     border-radius: 5px;
-    border-color: black;
+    border-style: solid;
+    border-width: 2px;
+
+    border-color: green;
+
+    font-weight: bold;
+    color:green
 }
 
 #gameBoard
@@ -47,6 +67,34 @@
     width: 300px;
     height: 600px;
     background-color: darkslategray;
+    display:block;
+}
+
+#heldPiece
+{
+    width: 200px;
+    height: 250px;
+    background-color:aquamarine;
+    border-radius: 30px;
+    border-color: yellow;
+    border-style: solid;
+    border-width: 5px;
+
+    font-weight: bold;
+    color:green
+}
+
+#heldPieceName
+{
+    width: 200px; 
+    height: 50px;
+    background-color: fushia;
+    font-family:'Courier New', Courier, monospace;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
 }
 
 #heldPieceScreen
@@ -56,41 +104,27 @@
     background-color: darkslategray;
 }
 
-#leftScreen 
+#nextPiece
 {
-    width: 250px;
-    height: 700px;
-    background-color: green;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
+    width: 200px;
+    height: 250px;
+    background-color:aquamarine;
+    border-radius: 30px;
+    border-color: yellow;
+    border-style: solid;
+    border-width: 5px;
+
+    font-weight: bold;
+    color:green
 }
 
-
-#rightScreen
+#nextPieceName
 {
-    width: 250px;
-    height: 700px;
-    background-color: green;
-}
-
-#rightTopScreen
-{
-    width: 250px;
-    height: 300px;
-    background-color: green;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-}
-
-#rightBottomScreen
-{
-    width: 250px;
-    height: 400px;
-    background-color: green;
+    width: 200px; 
+    height: 50px;
+    background-color: fushia;
+    font-family:'Courier New', Courier, monospace;
+    font-size: 30px;
     display: flex;
     justify-content: center;
     text-align: center;
@@ -102,21 +136,80 @@
     width: 150px;
     height: 150px;
     background-color: darkslategray;
+}
+
+#leftScreen 
+{
+    width: 240px;
+    height: 700px;
+    background-color: limegreen;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+
+    border-style: solid;
+
+
+    border-width: 0px 10px 0px 0px;
+    border-color: green;
+}
+
+
+#rightScreen
+{
+    width: 240px;
+    height: 700px;
+    background-color: limegreen;
+
+    border-style: solid;
+
+
+    border-width: 0px 0px 0px 10px;
+    border-color: green;
+}
+
+#rightTopScreen
+{
+    width: 240px;
+    height: 300px;
+    background-color: limegreen;
     display: flex;
     justify-content: center;
     text-align: center;
     align-items: center;
 }
 
-#score
+#rightBottomScreen
 {
-    width: 250px;
-    height: 300px;
-    background-color: cyan;
-    font-family:'Courier New', Courier, monospace;
-    font-size: 20px;
+    width: 240px;
+    height: 400px;
+    background-color: limegreen;
     display: flex;
     justify-content: center;
     text-align: center;
     align-items: center;
+}
+
+
+
+#score
+{
+    width: 200px;
+    height: 220px;
+    background-color:aquamarine;
+    border-radius: 30px;
+    border-color: yellow;
+    border-style: solid;
+    border-width: 5px;
+    font-family:'Courier New', Courier, monospace;
+    font-size: 17px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    
+    font-weight: bold;
+    color:green;
+
 }

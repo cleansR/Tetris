@@ -10,18 +10,24 @@
 <body>
     <div id = "interface">
         <div id = "leftScreen">
-            <canvas id = "heldPieceScreen" width = "150" height = "150"> </canvas>
+            <div id = "heldPiece">
+                <div id = "heldPieceName"></div>
+                <canvas id = "heldPieceScreen" width = "150" height = "150"> </canvas>
+            </div>
         </div>
         <div id = "midSection">
             <div id = "midTop"></div>
             <canvas id = "gameBoard" width = "300" height = "600"> </canvas>
             <div id = "midBottom">
-                <button id = "startGame">Amongus</button>
+                <button id = "startGame">Start Game</button>
             </div>
         </div>
         <div id = "rightScreen">
             <div id = "rightTopScreen">
-                <canvas id = "nextPieceScreen" width = "150" height = "150"> </canvas>
+                <div id = "nextPiece">
+                    <div id = "nextPieceName"></div>
+                    <canvas id = "nextPieceScreen" width = "150" height = "150"> </canvas>
+                </div>
             </div>
             <div id = "rightBottomScreen">
                 <div id = "score"></div>

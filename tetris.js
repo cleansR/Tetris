@@ -1,33 +1,45 @@
+//Tetris 2-D array size
 const boardHeight = 20;
 const boardWidth = 10;
 
+//GUI variables
+const startButton = document.getElementById("startGame");
+
+//Score multipliers for different line clears
 const singleScore = 100;
 const doubleScore = 300;
 const tripleScore = 500;
 const tetrisScore = 800;
+
+// Max level in which speeds change
 const highestEffectiveLevel = 29;
 
-// Current game variables
-var boardArray;
+// Current speed-related variables
 var currentTickSpeed = 800;
 var currentLockSpeed = 400;
-var currentScore = 0;
-var currentLevel = 0;
-var currentPiece = null;
+
+// Current game-state variables
+var boardArray;
 var currentGameTick = null;
 var gameInProgress = false;
 var canStart = true;
+
+// Current input-related variables
 var heldPiece = null;
 var usedHold = false;
 var nextPiece = null;
+var currentPiece = null;
+
+// Current score-related variables
+var currentScore = 0;
+var currentLevel = 0;
 var linesCleared = 0;
 
-
-const startButton = document.getElementById("startGame");
+// Other variables
+var topScores = [0, 0, 0];
 var music = null;
 
-const pieces = ["I", "S", "Z", "T", "L", "J", "O"];
-
+// How often (in ms) a piece moves down one row depending on current level
 const dropSpeed = [
     800, 720, 630, 550, 470, 380, 300, 220, 140, 100, 
     84, 84, 84, 67, 67, 67, 50, 50, 50, 
@@ -36,7 +48,11 @@ const dropSpeed = [
 ];
 
 
-setUp();
+// --------------------------------------Functions------------------------------------------------
+
+
+
+window.onload = setUp;
 
 
 /**
@@ -44,6 +60,7 @@ setUp();
  */
 function setUp()
 {
+    // Creates the game-board
     boardArray = new Array(20);
     for(let i = 0; i < 20; i++){
         boardArray[i] = new Array(10);
@@ -52,8 +69,10 @@ function setUp()
         }
     }
 
-    initialize();
+    // Initializes all GUI/graphics
+    initializeGraphics();
 
+    // Sets event-listeners for various input methods
     window.onkeydown = function(event){
         parseInput(event);
     };
@@ -61,8 +80,18 @@ function setUp()
     startButton.onclick = startGame;
 }
 
+
+
+
+
+
+
 //Input-related methods
 
+/**
+ * Determines the action based off what key was pressed
+ * @param {Event} event the key event that was fired
+ */
 function parseInput(event)
 {
     let code = event.code;
@@ -93,6 +122,8 @@ function holdPiece()
 {
     if(!usedHold && !currentPiece.isLocked()){
         if(heldPiece == null){
+            
+            // Removes the current piece from the game-board, resets it to default settings, and saves it
             eraseTetriminoInArray(currentPiece.getOrigin(), currentPiece.getPieces())
             currentPiece.setOrigin([0, 3]);
             currentPiece.resetRot();
@@ -102,6 +133,7 @@ function holdPiece()
             startNextPiece();
         }
         else{
+            // Removes the current piece from the game-board, resets it to default settings, and swaps it with the currently held piece
             eraseTetriminoInArray(currentPiece.getOrigin(), currentPiece.getPieces())
             currentPiece.setOrigin([0, 3]);
             currentPiece.resetRot();
@@ -111,17 +143,18 @@ function holdPiece()
             currentPiece = heldPiece;
             heldPiece = tempPiece;
         }
-        update();
+        updateGraphics();
         drawHoldPieceScreen();
         usedHold = true;
     }
 }
 
 /**
- * Automatically drops the current piece to the lowest point possible on the board
+ * Automatically drops the current piece to the lowest point possible on the board (Instant Drop)
  */
 function autoDrop()
 {
+    // Determines the lowest valid position for the piece, moves it to that location, and locks it
     let tempOrigin = [currentPiece.getOrigin()[0] , currentPiece.getOrigin()[1]];
     while(validMove(currentPiece.getOrigin(), tempOrigin, currentPiece.getPieces(), currentPiece.getPieces())){
         tempOrigin[0]++;
@@ -131,6 +164,12 @@ function autoDrop()
     currentPiece.setOrigin(tempOrigin);
     currentPiece.lock();
 }
+
+
+
+
+
+
 
 
 //Game loop-related methods
@@ -150,11 +189,15 @@ function createPiece()
  */
 function startNextPiece()
 {
+    // Resets various variables that relate to the current piece
     usedHold = false;
     clearInterval(currentGameTick);
+
+    // Replaces current piece with the next piece and generates a new piece to be the next piece
     currentPiece = nextPiece;
     nextPiece = createPiece();
 
+    // Checks if the new piece has room in the current board to generate, and if not, ends the game
     if(!canGenerate(currentPiece.getOrigin(), currentPiece.getPieces())){
         currentPiece.move(currentPiece.getOrigin(), currentPiece.getOrigin(), currentPiece.getPieces(), currentPiece.getPieces());
         endGame();
@@ -165,9 +208,12 @@ function startNextPiece()
             gameLoop, currentTickSpeed
         )
     }
-    update();
+    updateGraphics();
 }
 
+/**
+ * Checks for whether the current level should be updated, if so, updates it as well as the speed that the blocks fall
+ */
 function updateLevel()
 {
     let nextLevel = currentLevel+1;
@@ -180,10 +226,26 @@ function updateLevel()
 }
 
 /**
+ * Updates the highest scores list with the current score
+ */
+function updateTopScores()
+{
+    let swapScore = currentScore;
+    for(let i = 0; i < topScores.length; i++){
+        if(swapScore > topScores[i]){
+            let newSwapScore = topScores[i];
+            topScores[i] = swapScore;
+            swapScore = newSwapScore;
+        }
+    }
+}
+
+/**
  * Begins the game loop
  */
 function startGame()
 {
+    // Sets various game-state variables and begins the audio
     if(canStart){
         music = document.createElement("audio");
         music.setAttribute('src', '19.mp3');
@@ -202,7 +264,6 @@ function startGame()
  */
 function endGame()
 {
-    console.log("ending");
     clearInterval(currentGameTick);
     gameInProgress = false;
     setTimeout(resetGame, 3000);
@@ -213,7 +274,7 @@ function endGame()
  */
 function resetGame()
 {
-    console.log("resetting");
+    updateTopScores();
     currentScore = 0;
     currentLevel = 0;
     linesCleared = 0;
@@ -223,16 +284,16 @@ function resetGame()
     heldPiece = null;
     usedHold = false;
     nextPiece = null;
-
-    console.log(music);
     music.pause();
     music = null;
+
+
     for(let i = 0; i < boardHeight; i++){
         for(let j = 0; j < boardWidth; j++){
             boardArray[i][j] = 0;
         }
     }
-    update();
+    updateGraphics();
 
     canStart = true;
 }
@@ -243,6 +304,12 @@ function gameLoop()
         currentPiece.moveDown();
     }
 }
+
+
+
+
+
+
 
 
 //Array manipulation methods
@@ -294,6 +361,8 @@ function clearLines()
     let streak = 0;
     let newBoard = new Array(20);
     let ptr = 19;
+
+    //Iterates through the board to check for full lines, removes them from the board, and upates the score
     for(let i = boardHeight - 1; i>=0; i--){
         let fullLine = true;
         for(let j = 0; j < boardWidth; j++){
@@ -310,7 +379,9 @@ function clearLines()
             ptr--;
         }
     }
-    addScore(streak);   
+    addScore(streak);  
+
+    //Fills in extra empty lines at the top to replace the deleted filled lines
     while(ptr>=0){
         let emptyLine = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
         newBoard[ptr] = emptyLine;
@@ -318,6 +389,12 @@ function clearLines()
     } 
     boardArray = newBoard;
 }
+
+
+
+
+
+
 
 
 //Check methods
@@ -351,16 +428,17 @@ function validMove(oldOrigin, newOrigin, oldPieces, newPieces)
     for(let i = 0; i < newPieces.length; i++){
         let row = cr + newPieces[i][0];
         let col = cc + newPieces[i][1];
+        
+        // Checks for out-of-bounds
         if(row<0 || row >= boardHeight || col < 0 || col>=boardWidth)
         {
             return false;
         } 
+
+        // Checks for collisions
         if((boardArray[row][col]!=0)){
             if(!contains([row, col], oldPieces, oldOrigin)){
                 return false;
-            }
-            else{
- 
             }
         }
     }
@@ -393,16 +471,16 @@ function addScore(streak)
 {
     switch(streak){
         case 1:
-            currentScore += singleScore * currentLevel;
+            currentScore += singleScore * (currentLevel + 1);
             break;
         case 2:
-            currentScore += doubleScore * currentLevel;
+            currentScore += doubleScore * (currentLevel + 1);
             break;
         case 3:
-            currentScore += tripleScore * currentLevel;
+            currentScore += tripleScore * (currentLevel + 1);
             break;
         case 4:
-            currentScore += tetrisScore * currentLevel;
+            currentScore += tetrisScore * (currentLevel + 1);
             break;
     }
 }

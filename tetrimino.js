@@ -1,3 +1,5 @@
+
+// Various lookup tables to determine characteristics of each piece
 const tetriminoMap = new Map(
     [
         ['I', 
@@ -90,10 +92,13 @@ const tetriminoNumberToColor = new Map(
     ]
 );
 
+const pieces = ["I", "S", "Z", "T", "L", "J", "O"];
+
+
 class Tetrimino
 {
     /**
-     * 
+     * Creates the Tetrimino object with the specified characteristics
      * @param {string} pieceType - the character describing the piece
      * @param {Array} origin - an array of length 2 that describes the row and column of the piece's origin
      * @param {Number} number - the number describing the piece (used in the 2-D array representation of the board)
@@ -109,6 +114,10 @@ class Tetrimino
         this.lockDelayInterval = null;
         this.number = number;
     }
+    
+
+
+    // Moving-related 
 
     /**
      * Rotates the piece if possible
@@ -171,7 +180,6 @@ class Tetrimino
                 }
             }
         }
-
     }
 
     /**
@@ -203,9 +211,12 @@ class Tetrimino
     move(oldOrigin, newOrigin, oldPieces, newPieces)
     {
         moveTetriminoInArray(oldOrigin, newOrigin, oldPieces, newPieces, this.number);
-
-        update();
+        updateGraphics();
     }
+
+
+
+
 
     //Getters
 
@@ -245,6 +256,10 @@ class Tetrimino
     {
         return this.locked;
     }
+
+
+
+
 
     //Setters
 

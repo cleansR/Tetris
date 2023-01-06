@@ -1,3 +1,4 @@
+// HTML element references
 const board = document.getElementById("gameBoard");
 const scoreBoard = document.getElementById("score");
 const heldPieceScreen = document.getElementById("heldPieceScreen");
@@ -7,12 +8,22 @@ const heldPieceTitle = document.getElementById("heldPieceName");
 const nextPieceTitle = document.getElementById("nextPieceName");
 const controls = document.getElementById("controls");
 
+
+// Canvas-related constants
 const canvasHeight = 600;
 const canvasWidth = 300;
 const smallCanvasHeight = 150;
 const smallCanvasWidth = 150;
 
-function initialize()
+
+
+// Updates
+
+
+/**
+ * Draws all of the necessary graphical components when the window loads
+ */
+function initializeGraphics()
 {
     drawBoard();
     drawHoldPieceScreen();
@@ -22,7 +33,10 @@ function initialize()
     drawControls();
 }
 
-function update()
+/**
+ * Updates the graphical components during the game
+ */
+function updateGraphics()
 {
     drawBoard();
     drawHoldPieceScreen();
@@ -30,6 +44,16 @@ function update()
     drawNextPieceScreen();
 }
 
+
+
+
+
+
+// Drawing-related
+
+/**
+ * Draws the game board with the current pieces
+ */
 function drawBoard()
 {
     let ctx = board.getContext("2d");
@@ -58,6 +82,9 @@ function drawBoard()
     }
 }
 
+/**
+ * Draws the held-piece screen
+ */
 function drawHoldPieceScreen()
 {
     let ctx = heldPieceScreen.getContext("2d");
@@ -92,16 +119,9 @@ function drawHoldPieceScreen()
 
 }
 
-function drawScore()
-{
-    scoreBoard.innerText = "Score: " + currentScore + "\nLevel: " + currentLevel + "\nLines Cleared: " + linesCleared;
-}
-
-function drawControls()
-{
-    controls.innerText = "Controls: \n\nUp : Rotate \n\nLeft : Move Left \n\nRight : Move Right \n\nDown : Move Down \n\nSpace : Instant Drop \n\nC : Hold";
-}
-
+/**
+ * Draws the next-piece screen
+ */
 function drawNextPieceScreen()
 {
     let ctx = nextPieceScreen.getContext("2d");
@@ -135,6 +155,32 @@ function drawNextPieceScreen()
     }
 }
 
+
+
+
+
+
+// Writing-related
+
+/**
+ * Updates the current game statistics
+ */
+function drawScore()
+{
+    scoreBoard.innerText = "Score: " + currentScore + "\nLevel: " + currentLevel + "\nLines Cleared: " + linesCleared + "\n___________________\n\nTop Scores:" + "\n\n1. " + topScores[0] + "\n2. " + topScores[1] + "\n3. " + topScores[2];
+}
+
+/**
+ * Writes the list of controls
+ */
+function drawControls()
+{
+    controls.innerText = "Controls: \n\nUp: Rotate \n\nLeft: Move Left \n\nRight: Move Right \n\nDown: Move Down \n\nSpace: Instant Drop \n\nC: Hold";
+}
+
+/**
+ * Writes various labels
+ */
 function drawTitle()
 {
     titleScreen.innerText = "TETRIS";

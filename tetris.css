@@ -2,21 +2,141 @@
 {
     width: 800px;
     height: 700px;
+
     display: flex;
     justify-content: center;
     margin: 0 auto;
+
     border-style: solid;
     border-color:blueviolet;
     border-radius: 8px;
     border-width: 10px;
 }
 
+
+
+
+
+
+
+
+#leftScreen 
+{
+    width: 240px;
+    height: 700px;
+
+    background-color: fuchsia;
+
+    border-style: solid;
+    border-width: 0px 10px 0px 0px;
+    border-color: blueviolet;
+}
+
+#leftTopScreen
+{
+    width: 240px;
+    height: 300px;
+
+    background-color: fuchsia;
+
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+#heldPiece
+{
+    width: 200px;
+    height: 250px;
+
+    background-color:aquamarine;
+
+    border-radius: 30px;
+    border-color: cyan;
+    border-style: solid;
+    border-width: 5px;
+}
+
+#heldPieceName
+{
+    width: 200px; 
+    height: 50px;
+
+    background-color: fushia;
+
+    font-family:'Courier New', Courier, monospace;
+    font-size: 30px;
+    font-weight: bold;
+    color:green;
+
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+#heldPieceScreen
+{
+    width: 150px;
+    height: 150px;
+
+    background-color: darkslategray;
+}
+
+#leftBottomScreen
+{
+    width: 240px;
+    height: 400px;
+
+    background-color: fuchsia;
+
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+#controls
+{
+    width: 200px;
+    height: 300px;
+
+    background-color:aquamarine;
+
+    border-radius: 30px;
+    border-color: cyan;
+    border-style: solid;
+    border-width: 5px;
+
+    font-family:'Courier New', Courier, monospace;
+    font-size: 17px;
+    font-weight: bold;
+    color:green;
+
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;  
+}
+
+
+
+
+
+
+
+
 #midTop
 {
     width: 292px;
     height: 42px;
+
     font-family:'Courier New', Courier, monospace;
     font-size: 30px;
+    font-weight: bold;
+    color:green;
+
     display: flex;
     justify-content: center;
     text-align: center;
@@ -26,16 +146,13 @@
     border-style: solid;
     border-color: cyan;
     background-color:aquamarine;
-
-    font-weight: bold;
-    color:green
-    
 }
 
 #midBottom
 {
     width: 292px;
     height: 42px;
+
     display: flex;
     justify-content: center;
     text-align: center;
@@ -51,12 +168,14 @@
 {
     width: 100px;
     height: 25px;
+
     background-color: yellow;
+
     border-radius: 5px;
     border-style: solid;
     border-width: 2px;
-
     border-color: blueviolet;
+
     font-weight: bold;
     color:green
 }
@@ -65,65 +184,68 @@
 {
     width: 300px;
     height: 600px;
+
     background-color: darkslategray;
+
     display:block;
 }
 
-#heldPiece
-{
-    width: 200px;
-    height: 250px;
-    background-color:aquamarine;
-    border-radius: 30px;
-    border-color: cyan;
-    border-style: solid;
-    border-width: 5px;
 
-    font-weight: bold;
-    color:green
+
+
+
+
+
+#rightScreen
+{
+    width: 240px;
+    height: 700px;
+
+    background-color: fuchsia;
+
+    border-style: solid;
+    border-width: 0px 0px 0px 10px;
+    border-color: blueviolet;
 }
 
-#heldPieceName
+#rightTopScreen
 {
-    width: 200px; 
-    height: 50px;
-    background-color: fushia;
-    font-family:'Courier New', Courier, monospace;
-    font-size: 30px;
+    width: 240px;
+    height: 300px;
+
+    background-color: fuchsia;
+
     display: flex;
     justify-content: center;
     text-align: center;
     align-items: center;
 }
 
-#heldPieceScreen
-{
-    width: 150px;
-    height: 150px;
-    background-color: darkslategray;
-}
-
 #nextPiece
 {
     width: 200px;
     height: 250px;
+
     background-color:aquamarine;
+
     border-radius: 30px;
     border-color: cyan;
     border-style: solid;
     border-width: 5px;
-
-    font-weight: bold;
-    color:green
 }
 
 #nextPieceName
 {
     width: 200px; 
     height: 50px;
+
     background-color: fushia;
+
     font-family:'Courier New', Courier, monospace;
     font-size: 30px;
+    font-weight: bold;
+    color:green;
+
     display: flex;
     justify-content: center;
     text-align: center;
@@ -134,118 +256,42 @@
 {
     width: 150px;
     height: 150px;
+
     background-color: darkslategray;
-}
-
-#leftScreen 
-{
-    width: 240px;
-    width: 240px;
-    height: 700px;
-    background-color: fuchsia;
-
-    border-style: solid;
-    border-width: 0px 10px 0px 0px;
-    border-color: blueviolet;
-}
-
-#leftTopScreen
-{
-    width: 240px;
-    height: 300px;
-    background-color: fuchsia;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-}
-
-#leftBottomScreen
-{
-    width: 240px;
-    height: 400px;
-    background-color: fuchsia;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-}
-
-
-#rightScreen
-{
-    width: 240px;
-    height: 700px;
-    background-color: fuchsia;
-
-    border-style: solid;
-
-
-    border-width: 0px 0px 0px 10px;
-    border-color: blueviolet;
-}
-
-#rightTopScreen
-{
-    width: 240px;
-    height: 300px;
-    background-color: fuchsia;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
 }
 
 #rightBottomScreen
 {
     width: 240px;
     height: 400px;
+
     background-color: fuchsia;
+
     display: flex;
     justify-content: center;
     text-align: center;
     align-items: center;
 }
-
-
 
 #score
 {
     width: 200px;
     height: 250px;
+
     background-color:aquamarine;
+
     border-radius: 30px;
     border-color: cyan;
     border-style: solid;
     border-width: 5px;
+
     font-family:'Courier New', Courier, monospace;
     font-size: 17px;
+    font-weight: bold;
+    color:green;
+
     display: flex;
     justify-content: center;
     text-align: center;
     align-items: center;
-    
-    font-weight: bold;
-    color:green;
-
-}
-
-#controls
-{
-    width: 200px;
-    height: 300px;
-    background-color:aquamarine;
-    border-radius: 30px;
-    border-color: cyan;
-    border-style: solid;
-    border-width: 5px;
-    font-family:'Courier New', Courier, monospace;
-    font-size: 17px;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-    
-    font-weight: bold;
-    color:green;
 }

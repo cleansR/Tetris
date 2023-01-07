@@ -120,13 +120,36 @@ class Tetrimino
     // Moving-related 
 
     /**
-     * Rotates the piece if possible
+     * Rotates the piece clockwise if possible
      */
-    rotate()
+    rotateRight()
     {
         if(!this.locked){
             let oldPieces = this.currentPieces;
             this.currentRot++; 
+            this.currentRot%=4;
+            let newPieces = this.pieceArr[this.currentRot];
+            if(validMove(this.currentOrigin, this.currentOrigin, oldPieces, newPieces)){
+                this.currentPieces = newPieces;
+                this.move(this.currentOrigin, this.currentOrigin, oldPieces, newPieces);
+
+                if(this.lockDelayInterval!=null){
+                    clearInterval(this.lockDelayInterval);
+                    this.lockDelayInterval = null;
+                }
+            }
+        }
+    }
+
+    /**
+     * Rotates the piece counterclockwise if possible
+     */
+    rotateLeft()
+    {
+        if(!this.locked){
+            let oldPieces = this.currentPieces;
+            this.currentRot--; 
+            this.currentRot+=4;
             this.currentRot%=4;
             let newPieces = this.pieceArr[this.currentRot];
             if(validMove(this.currentOrigin, this.currentOrigin, oldPieces, newPieces)){

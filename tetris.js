@@ -98,8 +98,11 @@ function parseInput(event)
     if(code == "ArrowDown" && gameInProgress){
         currentPiece.moveDown();
     }
-    else if(code == "ArrowUp" && gameInProgress){
-        currentPiece.rotate();
+    else if( (code == "ArrowUp" || code == "KeyD") && gameInProgress){
+        currentPiece.rotateRight();
+    }
+    else if(code == "KeyA" && gameInProgress){
+        currentPiece.rotateLeft();
     }
     else if(code == "ArrowLeft" && gameInProgress){
         currentPiece.moveLeft();

@@ -14,6 +14,9 @@ const tetrisScore = 800;
 // Max level in which speeds change
 const highestEffectiveLevel = 29;
 
+// Music
+const musicList = ["theme1.mp3", "theme2.mp3", "theme3.mp3", "theme4.mp3"];
+
 // Current speed-related variables
 var currentTickSpeed = 800;
 var currentLockSpeed = 400;
@@ -38,6 +41,7 @@ var linesCleared = 0;
 // Other variables
 var topScores = [0, 0, 0];
 var music = null;
+var currentTheme = 0;
 
 // How often (in ms) a piece moves down one row depending on current level
 const dropSpeed = [
@@ -78,6 +82,9 @@ function setUp()
     };
 
     startButton.onclick = startGame;
+    
+    let randNum = Math.floor(Math.random() * musicList.length);
+    currentTheme = randNum;
 }
 
 
@@ -251,9 +258,15 @@ function startGame()
     // Sets various game-state variables and begins the audio
     if(canStart){
         music = document.createElement("audio");
-        music.setAttribute('src', '19.mp3');
-        music.loop = true;
+        music.setAttribute('src', musicList[currentTheme]);
+        music.addEventListener("ended", function(){
+            currentTheme++; currentTheme%=4;
+            music.src = musicList[currentTheme];
+            music.load();
+            music.play();
+        });
         music.play();
+
 
         gameInProgress = true;
         canStart = false;
@@ -288,6 +301,8 @@ function resetGame()
     usedHold = false;
     nextPiece = null;
     music.pause();
+    let randNum = Math.floor(Math.random() * musicList.length);
+    currentTheme = randNum;
     music = null;
 
 

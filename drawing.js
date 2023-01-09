@@ -7,6 +7,7 @@ const titleScreen = document.getElementById("midTop");
 const heldPieceTitle = document.getElementById("heldPieceName");
 const nextPieceTitle = document.getElementById("nextPieceName");
 const controls = document.getElementById("controls");
+const levelSelect = document.getElementById("levelSelect");
 
 
 // Canvas-related constants
@@ -31,6 +32,7 @@ function initializeGraphics()
     drawNextPieceScreen();
     drawTitle();
     drawControls();
+    drawLevelSelector();
 }
 
 /**
@@ -186,5 +188,18 @@ function drawTitle()
     titleScreen.innerText = "TETRIS";
     heldPieceTitle.innerHTML = "HOLD";
     nextPieceTitle.innerHTML = "NEXT";
+}
+
+/**
+ * Creates the level selector
+ */
+function drawLevelSelector()
+{
+    for(let i = 0; i < 30; i++){
+        let str = String(i);
+        let op = document.createElement("option");
+        op.textContent = str;
+        levelSelect.appendChild(op);
+    }
 }
 

@@ -18,7 +18,7 @@ const highestEffectiveLevel = 29;
 const musicList = ["theme1.mp3", "theme2.mp3", "theme3.mp3", "theme4.mp3"];
 
 // Current speed-related variables
-var currentTickSpeed = 800;
+var currentTickSpeed = 0;
 var currentLockSpeed = 400;
 
 // Current game-state variables
@@ -268,6 +268,10 @@ function startGame()
         music.play();
 
 
+        currentLevel = levelSelect.options[levelSelect.selectedIndex].text;
+        currentTickSpeed = dropSpeed[currentLevel];
+
+
         gameInProgress = true;
         canStart = false;
         nextPiece = createPiece();
@@ -292,9 +296,11 @@ function resetGame()
 {
     updateTopScores();
     currentScore = 0;
-    currentLevel = 0;
+
+    currentLevel = levelSelect.options[levelSelect.selectedIndex].text;
+    currentTickSpeed = dropSpeed[currentLevel];
+
     linesCleared = 0;
-    currentTickSpeed = 800;
     currentPiece = null;
     currentGameTick = null;
     heldPiece = null;

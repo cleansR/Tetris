@@ -1,0 +1,96 @@
+#mainScreen
+{
+    width: 400px;
+    height: 700px;
+
+
+    justify-content: center;
+    margin: 0 auto;
+   
+
+    border-style: solid;
+    border-color:blueviolet;
+    border-radius: 8px;
+    border-width: 10px;
+}
+
+#display
+{
+    width: 380px;
+    height: 340px;
+    background-color: black;
+
+
+    border-width: 10px;
+    border-style: solid;
+    border-color: blueviolet;
+
+}
+
+#buttons
+{
+    width: 400px;
+    height: 335px;
+    background-color: magenta;
+
+    border-style: solid;
+    border-width: 5px 0px 0px 0px;
+    border-color: blueviolet;
+}
+
+#toPlay
+{
+    width: 200px;
+    height: 70px;
+
+    display:block;
+    align-items: center;
+    justify-content: center;
+
+    background-color: lime;
+
+    margin-top: 75px;
+    margin-bottom: 35px;
+    margin-left: 100px;
+
+    
+    font-family:'Courier New', Courier, monospace;
+    font-size: 25px;
+    font-weight: bold;
+    color:green;
+
+    border-style: solid;
+    border-radius: 10px;
+    border-width: 6px;
+    border-color: cyan;
+
+}
+
+#toHighScores
+{
+    width: 200px;
+    height: 70px;
+
+    display:block;
+    align-items: center;
+    justify-content: center;
+
+
+    margin-top: 35px;
+    margin-bottom: 75px;
+    margin-left: 100px;
+
+    background-color: lime;
+
+    
+    font-family:'Courier New', Courier, monospace;
+    font-size: 25px;
+    font-weight: bold;
+    color:green;
+
+    border-style: solid;
+    border-radius: 10px;
+    border-width: 6px;
+    border-color: cyan;
+    
+}

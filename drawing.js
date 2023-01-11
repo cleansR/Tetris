@@ -16,7 +16,7 @@ const canvasWidth = 300;
 const smallCanvasHeight = 150;
 const smallCanvasWidth = 150;
 
-
+const scoreBoardDisplayLength = 3;
 
 // Updates
 
@@ -169,7 +169,8 @@ function drawNextPieceScreen()
  */
 function drawScore()
 {
-    scoreBoard.innerText = "Score: " + currentScore + "\nLevel: " + currentLevel + "\nLines Cleared: " + linesCleared + "\n___________________\n\nTop Scores:" + "\n\n1. " + topScores[0] + "\n2. " + topScores[1] + "\n3. " + topScores[2];
+    let scoreBoardString = "Score: " + currentScore + "\nLevel: " + currentLevel + "\nLines Cleared: " + linesCleared ; 
+    scoreBoard.innerText = scoreBoardString;
 }
 
 /**

@@ -177,10 +177,22 @@
     border-color: blueviolet;
 
     font-weight: bold;
-    color:green
+    color:green;
 }
 
 #levelSelect
+{
+    width: 100px;
+    height: 25px;
+
+    background-color: yellow;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: blueviolet;
+}
+
+#back
 {
     width: 100px;
     height: 25px;
@@ -306,3 +318,4 @@
     text-align: center;
     align-items: center;
 }
+

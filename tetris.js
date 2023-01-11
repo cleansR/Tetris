@@ -4,6 +4,7 @@ const boardWidth = 10;
 
 //GUI variables
 const startButton = document.getElementById("startGame");
+const backButton = document.getElementById("back");
 
 //Score multipliers for different line clears
 const singleScore = 100;
@@ -37,9 +38,9 @@ var currentPiece = null;
 var currentScore = 0;
 var currentLevel = 0;
 var linesCleared = 0;
+var startedLevel = 0;
 
 // Other variables
-var topScores = [0, 0, 0];
 var music = null;
 var currentTheme = 0;
 
@@ -73,6 +74,8 @@ function setUp()
         }
     }
 
+    //topScores = retrieveHighScores();
+
     // Initializes all GUI/graphics
     initializeGraphics();
 
@@ -82,11 +85,12 @@ function setUp()
     };
 
     startButton.onclick = startGame;
+
+    backButton.onclick = returnToMenu;
     
     let randNum = Math.floor(Math.random() * musicList.length);
     currentTheme = randNum;
 }
-
 
 
 
@@ -236,21 +240,6 @@ function updateLevel()
 }
 
 /**
- * Updates the highest scores list with the current score
- */
-function updateTopScores()
-{
-    let swapScore = currentScore;
-    for(let i = 0; i < topScores.length; i++){
-        if(swapScore > topScores[i]){
-            let newSwapScore = topScores[i];
-            topScores[i] = swapScore;
-            swapScore = newSwapScore;
-        }
-    }
-}
-
-/**
  * Begins the game loop
  */
 function startGame()
@@ -294,9 +283,10 @@ function endGame()
  */
 function resetGame()
 {
-    updateTopScores();
+    updateTopScores(startedLevel, currentLevel, currentScore, linesCleared);
     currentScore = 0;
 
+    startedLevel = levelSelect.options[levelSelect.selectedIndex].text;
     currentLevel = levelSelect.options[levelSelect.selectedIndex].text;
     currentTickSpeed = dropSpeed[currentLevel];
 
@@ -329,6 +319,12 @@ function gameLoop()
     }
 }
 
+function returnToMenu()
+{
+    if(canStart){
+        window.location.href = "index.html";
+    }
+}
 
 
 

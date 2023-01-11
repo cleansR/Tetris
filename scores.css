@@ -1,0 +1,166 @@
+#mainScreen
+{
+    width: 400px;
+    height: 700px;
+
+    margin: 0 auto;
+   
+
+    border-style: solid;
+    border-color:blueviolet;
+    border-radius: 8px;
+    border-width: 10px;
+}
+
+#topScreen
+{
+    width: 380px;
+    height: 340px;
+    background-color: red;
+
+
+    border-width: 10px;
+    border-style: solid;
+    border-color: blueviolet;
+
+    display:flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+#bottomScreen
+{
+    width: 400px;
+    height: 335px;
+    background-color: fuchsia;
+
+    border-style: solid;
+    border-width: 5px 0px 0px 0px;
+    border-color: blueviolet;
+}
+
+#topLeftScreen
+{
+    width: 180px;
+    height: 340px;
+    background-color: cyan;
+
+    font-family:'Courier New', Courier, monospace;
+    font-size: 15px;
+    font-weight: bold;
+    color:green;
+
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#topRightScreen
+{
+    width: 190px;
+    height: 340px;
+    background-color: black;
+
+    border-style: solid;
+    border-color: blueviolet;
+    border-width: 0px 0px 0px 10px;
+
+    overflow-y: auto;
+}
+
+#enter
+{
+    width: 200px;
+    height: 70px;
+
+    display:block;
+    align-items: center;
+    justify-content: center;
+
+    background-color: lime;
+
+    margin-top: 30px;
+    margin-bottom: 20px;
+    margin-left: 100px;
+    
+    font-family:'Courier New', Courier, monospace;
+    font-size: 25px;
+    font-weight: bold;
+    color:green;
+
+    border-style: solid;
+    border-radius: 10px;
+    border-width: 6px;
+    border-color: cyan;
+}
+
+#numberItems
+{
+    width: 200px;
+    height: 50px;
+    background-color: lime;
+
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 100px;
+
+    font-family:'Courier New', Courier, monospace;
+    font-size: 25px;
+    font-weight: bold;
+    color:green;
+
+    border-style: solid;
+    border-radius: 10px;
+    border-width: 6px;
+    border-color: cyan;
+}
+
+#back
+{
+    width: 200px;
+    height: 70px;
+
+    display:block;
+    align-items: center;
+    justify-content: center;
+
+    background-color: lime;
+
+    margin-top: 20px;
+    margin-bottom: 30px;
+    margin-left: 100px;
+
+    font-family:'Courier New', Courier, monospace;
+    font-size: 25px;
+    font-weight: bold;
+    color:green;
+
+    border-style: solid;
+    border-radius: 10px;
+    border-width: 6px;
+    border-color: cyan;
+}
+
+.scoreDiv
+{
+    width: 155px;
+    height: 25px;
+
+    background-color:lime;
+
+    border-radius: 10px;
+    border-style: solid;
+    border-width:3px;
+    border-color:cyan;
+
+    display:flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 5px;
+}
+
+
+

@@ -10,6 +10,9 @@ var scoreListLength = 5;
 
 window.onload = initialize;
 
+/**
+ * Initializes the high-scores page
+ */
 function initialize()
 {
     highScoreArray = retrieveHighScores();
@@ -27,17 +30,26 @@ function initialize()
     }
 }
 
+/**
+ * Updates the shown list of high-scores with varying length
+ */
 function enter()
 {
     scoreListLength = lengthSelect.options[lengthSelect.selectedIndex].text;
     drawHighScores();
 }
 
+/**
+ * Returns to the home page
+ */
 function back()
 {
     window.location.href = "index.html";
 }
 
+/**
+ * Draws the list of high scores on the screen
+ */
 function drawHighScores()
 {
     while(highScoreList.hasChildNodes()){
@@ -59,6 +71,9 @@ function drawHighScores()
     }
 }
 
+/**
+ * Shows information about the selected high-score
+ */
 function showPressedScore()
 {
     let source = this.id;

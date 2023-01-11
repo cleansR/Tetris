@@ -94,7 +94,9 @@ const tetriminoNumberToColor = new Map(
 
 const pieces = ["I", "S", "Z", "T", "L", "J", "O"];
 
-
+/**
+ * Class representing a tetris piece
+ */
 class Tetrimino
 {
     /**

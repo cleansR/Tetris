@@ -4,6 +4,9 @@ const maxScoreLength = 100;
 
 var highScores = retrieveHighScores();
 
+/**
+ * Class to store score information
+ */
 class Score{
     constructor(startLevel, endLevel, score, linesCleared)
     {
@@ -16,6 +19,10 @@ class Score{
     getScore(){ return this.score; }
 }
 
+/**
+ * Returns the array of score objects representing the user's high scores
+ * @returns {Array<Score>}
+ */
 function retrieveHighScores()
 {
     let highScoreString = localStorage.getItem(highScoreAccessKey);

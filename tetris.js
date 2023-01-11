@@ -312,6 +312,9 @@ function resetGame()
     canStart = true;
 }
 
+/**
+ * Serves as the loop for each game tick, moving the current piece down
+ */
 function gameLoop()
 {
     if(currentPiece!=null && !currentPiece.isLocked()){
@@ -319,6 +322,9 @@ function gameLoop()
     }
 }
 
+/**
+ * Navigates back to the menu
+ */
 function returnToMenu()
 {
     if(canStart){

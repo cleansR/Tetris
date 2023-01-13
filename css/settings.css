@@ -1,0 +1,106 @@
+#mainScreen
+{
+    width: 400px;
+    height: 700px;
+
+    justify-content: center;
+    margin: 0 auto;
+   
+    border-style: solid;
+    border-color:blueviolet;
+    border-radius: 8px;
+    border-width: 10px;
+}
+
+#display
+{
+    width: 380px;
+    height: 680px;
+    background-color: black;
+
+
+    border-width: 10px;
+    border-style: solid;
+    border-color: blueviolet;
+}
+
+.controlDiv
+{
+    width: 370px;
+    height: 50px;
+
+    background-color: aquamarine;
+
+    border-width: 5px;
+    border-style: solid;
+    border-color: aqua;
+
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.controlList
+{
+    width: 70px;
+    height: 20px;
+    background-color: yellow;
+    margin: 10px;
+}
+
+.controlLabel
+{
+    width: 150px;
+    height: 40px;
+    background-color: fuchsia;
+    margin: 10px;
+    text-align: center;
+
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.controlCurrent
+{
+    width: 60px;
+    height: 40px;
+
+    background-color: fuchsia;
+    margin: 10px;
+    text-align: center;
+
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#volumeControl
+{
+    width: 87px;
+}
+
+#buttons
+{
+    width: 380px;
+    height: 200px;
+    background-color: darkmagenta;
+
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.buttons
+{
+    width: 150px;
+    height: 60px;
+    margin: 10px;
+
+    background-color: aquamarine;
+    
+    border-width: 8px;
+    border-style: solid;
+    border-color: aqua;
+    border-radius: 10px;
+}

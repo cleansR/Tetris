@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href = "css/settings.css">
+    <title>Settings</title>
+</head>
+<body>
+    <div id = "mainScreen">
+        <div id = "display">
+            <div class = "controlDiv">
+                <div class = "controlLabel">Move Left: </div>
+                <select id = "selectLeft" class = "controlList"></select>
+                <div id = "leftCurrent" class = "controlCurrent"></div>
+            </div>
+            <div class = "controlDiv">
+                <div class = "controlLabel">Move Right: </div>
+                <select id = "selectRight" class = "controlList"></select>
+                <div id = "rightCurrent" class = "controlCurrent"></div>
+            </div>
+            <div class = "controlDiv">
+                <div class = "controlLabel">Move Down: </div>
+                <select id = "selectDown" class = "controlList"></select>
+                <div id = "downCurrent" class = "controlCurrent"></div>
+            </div>
+            <div class = "controlDiv">
+                <div class = "controlLabel">Instant Drop: </div>
+                <select id = "selectInstantDrop" class = "controlList"></select>
+                <div id = "instantDropCurrent" class = "controlCurrent"></div>
+            </div>
+            <div class = "controlDiv">
+                <div class = "controlLabel">Rotate Right: </div>
+                <select id = "selectRotateClockwise" class = "controlList"></select>
+                <div id = "rotateClockwiseCurrent" class = "controlCurrent"></div>
+            </div>
+            <div class = "controlDiv">
+                <div class = "controlLabel">Rotate Left: </div>
+                <select id = "selectRotateCounterclockwise" class = "controlList"></select>
+                <div id = "rotateCounterclockwiseCurrent" class = "controlCurrent"></div>
+            </div>
+            <div class = "controlDiv">
+                <div class = "controlLabel">Hold Piece: </div>
+                <select id = "selectHoldPiece" class = "controlList"></select>
+                <div id = "holdPieceCurrent" class = "controlCurrent"></div>
+            </div>
+            <div class = "controlDiv">
+                <div class = "controlLabel">Volume: </div>
+                <input type = "range" id = "volumeControl" min = "0" max = "100" value="50">
+                <div id = "volumeCurrent" class = "controlCurrent"></div>
+            </div>
+            <div id = "buttons">
+                <button id = "saveChanges" class = "buttons">Save Changes</button>
+                <button id = "back" class = "buttons">Back</button>
+            </div>
+        </div>
+    </div>
+    <script type = "text/javascript" src = "js/storage.js"></script>
+    <script type = "text/javascript" src = "js/settings.js"></script>
+</body>
+</html>

@@ -1,5 +1,6 @@
 const playButton = document.getElementById("toPlay");
 const highScoresButton = document.getElementById("toHighScores");
+const settingsButton = document.getElementById("toSettings");
 
 window.onload = initialize;
 
@@ -10,6 +11,7 @@ function initialize()
 {
     playButton.onclick = mainToPlay;
     highScoresButton.onclick = mainToScores;
+    settingsButton.onclick = mainToSettings;
 }
 
 /**
@@ -26,4 +28,12 @@ function mainToPlay()
 function mainToScores()
 {
     window.location.href = "scores.html";
+}
+
+/**
+ * Navigates to settings page
+ */
+function mainToSettings()
+{
+    window.location.href = "settings.html";
 }

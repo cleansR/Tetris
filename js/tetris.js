@@ -7,10 +7,10 @@ const startButton = document.getElementById("startGame");
 const backButton = document.getElementById("back");
 
 //Score multipliers for different line clears
-const singleScore = 100;
-const doubleScore = 300;
-const tripleScore = 500;
-const tetrisScore = 800;
+const singleScore = 40;
+const doubleScore = 100;
+const tripleScore = 300;
+const tetrisScore = 1200;
 
 // Max level in which speeds change
 const highestEffectiveLevel = 29;
@@ -43,6 +43,10 @@ var startedLevel = 0;
 // Other variables
 var music = null;
 var currentTheme = 0;
+
+const controlsList = retrieveControls();
+console.log(controlsList);
+
 
 // How often (in ms) a piece moves down one row depending on current level
 const dropSpeed = [
@@ -106,25 +110,25 @@ function setUp()
 function parseInput(event)
 {
     let code = event.code;
-    if(code == "ArrowDown" && gameInProgress){
+    if(code == controlsList["down"] && gameInProgress){
         currentPiece.moveDown();
     }
-    else if( (code == "ArrowUp" || code == "KeyD") && gameInProgress){
+    else if(code == controlsList["rotateRight"] && gameInProgress){
         currentPiece.rotateRight();
     }
-    else if(code == "KeyA" && gameInProgress){
+    else if(code == controlsList["rotateLeft"] && gameInProgress){
         currentPiece.rotateLeft();
     }
-    else if(code == "ArrowLeft" && gameInProgress){
+    else if(code == controlsList["left"] && gameInProgress){
         currentPiece.moveLeft();
     }
-    else if(code =="ArrowRight" && gameInProgress){
+    else if(code ==controlsList["right"] && gameInProgress){
         currentPiece.moveRight();
     }
-    else if(code == "KeyC" && gameInProgress){
+    else if(code == controlsList["hold"] && gameInProgress){
         holdPiece();
     }
-    else if(code == "Space" && gameInProgress){
+    else if(code == controlsList["instantDrop"] && gameInProgress){
         autoDrop();
     }
 }
@@ -248,6 +252,7 @@ function startGame()
     if(canStart){
         music = document.createElement("audio");
         music.setAttribute('src', musicList[currentTheme]);
+        music.volume = controlsList["volume"]/100;
         music.addEventListener("ended", function(){
             currentTheme++; currentTheme%=4;
             music.src = musicList[currentTheme];
@@ -257,7 +262,9 @@ function startGame()
         music.play();
 
 
+        startedLevel = levelSelect.options[levelSelect.selectedIndex].text;
         currentLevel = levelSelect.options[levelSelect.selectedIndex].text;
+        console.log(currentLevel);
         currentTickSpeed = dropSpeed[currentLevel];
 
 
@@ -286,8 +293,8 @@ function resetGame()
     updateTopScores(startedLevel, currentLevel, currentScore, linesCleared);
     currentScore = 0;
 
-    startedLevel = levelSelect.options[levelSelect.selectedIndex].text;
-    currentLevel = levelSelect.options[levelSelect.selectedIndex].text;
+    startedLevel = 0;
+    currentLevel = 0;
     currentTickSpeed = dropSpeed[currentLevel];
 
     linesCleared = 0;

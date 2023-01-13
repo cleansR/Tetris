@@ -18,7 +18,7 @@ const smallCanvasWidth = 150;
 
 const scoreBoardDisplayLength = 3;
 
-// Updates
+const controlsObj = retrieveControls();
 
 
 /**
@@ -178,7 +178,21 @@ function drawScore()
  */
 function drawControls()
 {
-    controls.innerText = "Controls: \n\nUp: Rotate \n\nLeft: Move Left \n\nRight: Move Right \n\nDown: Move Down \n\nSpace: Instant Drop \n\nC: Hold";
+    let str = `
+        Controls: \n
+        ${controlsObj["rotateLeft"]}: Rotate Left\n
+        ${controlsObj["rotateRight"]}: Rotate Right \n
+        ${controlsObj["left"]}: Move Left \n
+        ${controlsObj["right"]}: Move Right \n
+        ${controlsObj["down"]}: Move Down \n
+        ${controlsObj["instantDrop"]}: Instant Drop \n
+        ${controlsObj["hold"]}: Hold
+        `;
+
+        while(str.indexOf("Key")!=-1) str = str.replace("Key", "");
+        while(str.indexOf("Arrow")!=-1) str = str.replace("Arrow", "");
+        
+    controls.innerText = str;
 }
 
 /**

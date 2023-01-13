@@ -45,8 +45,6 @@ var music = null;
 var currentTheme = 0;
 
 const controlsList = retrieveControls();
-console.log(controlsList);
-
 
 // How often (in ms) a piece moves down one row depending on current level
 const dropSpeed = [
@@ -262,9 +260,8 @@ function startGame()
         music.play();
 
 
-        startedLevel = levelSelect.options[levelSelect.selectedIndex].text;
-        currentLevel = levelSelect.options[levelSelect.selectedIndex].text;
-        console.log(currentLevel);
+        startedLevel = parseInt(levelSelect.options[levelSelect.selectedIndex].text);
+        currentLevel = parseInt(levelSelect.options[levelSelect.selectedIndex].text);
         currentTickSpeed = dropSpeed[currentLevel];
 
 
@@ -357,7 +354,6 @@ function returnToMenu()
  */
 function moveTetriminoInArray(oldOrigin, newOrigin, oldPieces, newPieces, tetriminoNumber)
 {
-    //console.log(JSON.stringify(boardArray));
     let or = oldOrigin[0]; let oc = oldOrigin[1];
     for(let i = 0; i < oldPieces.length; i++){
         let row = or + oldPieces[i][0];

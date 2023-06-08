@@ -1,5 +1,5 @@
 # Tetris
-This is a Tetris clone created using HTML, CSS and vanilla JavaScript. You can play it here without any setup: https://cleansr.github.io/Tetris-Clone/.
+This is a Tetris clone created using HTML, CSS and vanilla JavaScript. You can play it here without any setup: https://cleansr.github.io/Tetris/.
 
 ## What is Tetris?
 Tetris involves pieces of different shapes (7 different types) which fall down from the top  of a 20x10 game-board. 

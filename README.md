@@ -8,7 +8,6 @@ Every row that is fully occupied by blocks will dissapear and increase your scor
 The game ends when the pieces fill up the height of the board, blocking new pieces from spawning.
 The goal is to earn the highest score by lasting as long as possible and clearing as many lines at once as possible.
 As more lines are cleared, the level increases and the speeds at which the pieces fall increase.
-More information can be found here: https://en.wikipedia.org/wiki/Tetris.
 
 ## Features
 This clone includes all of the standard features of Tetris, which include: moving pieces horizontally, rotating pieces, instant-dropping pieces, and holding pieces.

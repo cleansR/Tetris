@@ -81,14 +81,23 @@ const tetriminoNumber = new Map(
 
 const tetriminoNumberToColor = new Map(
     [
-        [0, "darkslategray"],
-        [1, "cyan"],
-        [2, "lime"],
-        [3, "red"],
-        [4, "blueviolet"],
-        [5, "orange"],
-        [6, "blue"],
-        [7, "yellow"],
+        // [0, "darkslategray"],
+        // [1, "cyan"],
+        // [2, "lime"],
+        // [3, "red"],
+        // [4, "blueviolet"],
+        // [5, "orange"],
+        // [6, "blue"],
+        // [7, "yellow"],
+
+        [0, "white"],
+        [1, "white"],
+        [2, "white"],
+        [3, "white"],
+        [4, "white"],
+        [5, "white"],
+        [6, "white"],
+        [7, "white"],
     ]
 );
 

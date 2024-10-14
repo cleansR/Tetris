@@ -90,14 +90,14 @@ const tetriminoNumberToColor = new Map(
         // [6, "blue"],
         // [7, "yellow"],
 
-        [0, "white"],
-        [1, "white"],
-        [2, "white"],
-        [3, "white"],
-        [4, "white"],
-        [5, "white"],
-        [6, "white"],
-        [7, "white"],
+        [0, "darkslategray"],
+        [1, "lime"],
+        [2, "lime"],
+        [3, "lime"],
+        [4, "lime"],
+        [5, "lime"],
+        [6, "lime"],
+        [7, "lime"],
     ]
 );
 

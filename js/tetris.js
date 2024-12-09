@@ -18,6 +18,10 @@ const highestEffectiveLevel = 29;
 // Music
 const musicList = ["theme1.mp3", "theme2.mp3", "theme3.mp3", "theme4.mp3"];
 
+// SFX
+const tetrisSound = "tetrisSound.mp3";
+const lineClearSound = "lineClearSound.mp3";
+
 // Current speed-related variables
 var currentTickSpeed = 0;
 var currentLockSpeed = 400;
@@ -42,6 +46,7 @@ var startedLevel = 0;
 
 // Other variables
 var music = null;
+var sfx = null;
 var currentTheme = 0;
 
 const controlsList = retrieveControls();
@@ -241,6 +246,7 @@ function updateLevel()
     
 }
 
+
 /**
  * Begins the game loop
  */
@@ -258,6 +264,9 @@ function startGame()
             music.play();
         });
         music.play();
+
+        sfx = document.createElement("audio");
+        sfx.volume = controlsList["volume"]/100;
 
 
         startedLevel = parseInt(levelSelect.options[levelSelect.selectedIndex].text);
@@ -392,23 +401,35 @@ function clearLines()
     let ptr = 19;
 
     //Iterates through the board to check for full lines, removes them from the board, and upates the score
+    let lineClears = [];
     for(let i = boardHeight - 1; i>=0; i--){
+
         let fullLine = true;
+
         for(let j = 0; j < boardWidth; j++){
             if(boardArray[i][j]==0) fullLine = false;
         }
+
         if(fullLine){
             linesCleared++;
             streak++;
         }
         else{
-            addScore(streak);
+            lineClears.push(streak);
             streak = 0; 
             newBoard[ptr] = boardArray[i];
             ptr--;
         }
     }
-    addScore(streak);  
+
+    lineClears.push(streak);
+    lineClears = lineClears.filter(
+        (val) => {
+            return val > 0;
+        }
+    )
+
+    addScore(lineClears);
 
     //Fills in extra empty lines at the top to replace the deleted filled lines
     while(ptr>=0){
@@ -496,20 +517,29 @@ function contains(find, lookIn, oldOrigin)
  * Adds to the current score depending on the number of lines cleared
  * @param {Number} streak - the number of lines in a row cleared
  */
-function addScore(streak)
+function addScore(cleared)
 {
-    switch(streak){
-        case 1:
-            currentScore += singleScore * (currentLevel + 1);
-            break;
-        case 2:
-            currentScore += doubleScore * (currentLevel + 1);
-            break;
-        case 3:
-            currentScore += tripleScore * (currentLevel + 1);
-            break;
-        case 4:
-            currentScore += tetrisScore * (currentLevel + 1);
-            break;
+    if(cleared.length == 0) return;
+
+    let maxStreak = 0;
+    for (let streak of cleared) {
+        switch(streak){
+            case 1:
+                currentScore += singleScore * (currentLevel + 1);
+                break;
+            case 2:
+                currentScore += doubleScore * (currentLevel + 1);
+                break;
+            case 3:
+                currentScore += tripleScore * (currentLevel + 1);
+                break;
+            case 4:
+                currentScore += tetrisScore * (currentLevel + 1);
+                break;
+        }
+        maxStreak = Math.max(maxStreak, streak);
     }
+    sfx.src = (maxStreak < 4) ? lineClearSound : tetrisSound;
+    sfx.load();
+    sfx.play();
 }

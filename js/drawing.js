@@ -170,7 +170,7 @@ function drawNextPieceScreen()
 function drawScore()
 {
     let tetrisRate = Math.floor((tetrisLinesCleared / Math.max(1, linesCleared)) * 100);
-    let scoreBoardString = "Score: " + currentScore + "\nLevel: " + currentLevel + "\nLines Cleared: " + linesCleared + "\nTetris Rate: " + tetrisRate; 
+    let scoreBoardString = "Score: " + currentScore + "\nLevel: " + currentLevel + "\nLines Cleared: " + linesCleared + "\nTetris Rate: " + tetrisRate + "%"; 
     scoreBoard.innerText = scoreBoardString;
 }
 

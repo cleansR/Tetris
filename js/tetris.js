@@ -43,6 +43,7 @@ var currentScore = 0;
 var currentLevel = 0;
 var linesCleared = 0;
 var startedLevel = 0;
+var tetrisLinesCleared = 0;
 
 // Other variables
 var music = null;
@@ -302,8 +303,9 @@ function resetGame()
     startedLevel = 0;
     currentLevel = 0;
     currentTickSpeed = dropSpeed[currentLevel];
-
+    
     linesCleared = 0;
+    tetrisLinesCleared = 0;
     currentPiece = null;
     currentGameTick = null;
     heldPiece = null;
@@ -535,6 +537,7 @@ function addScore(cleared)
                 break;
             case 4:
                 currentScore += tetrisScore * (currentLevel + 1);
+                tetrisLinesCleared+=4;
                 break;
         }
         maxStreak = Math.max(maxStreak, streak);
